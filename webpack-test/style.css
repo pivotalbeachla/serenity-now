@@ -1,0 +1,7 @@
+@import 'additionalStyle.css';
+
+body {
+  background: pink;
+  font-style: italic;
+  font-weight: 500;
+}

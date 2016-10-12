@@ -1,0 +1,6 @@
+{ "name": "webpack-test",
+  "devDependencies": {
+    "webpack": "1.12.X",
+    "css-loader": "",
+    "style-loader": ""
+  } }
