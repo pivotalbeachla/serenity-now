@@ -12,8 +12,7 @@ describe('landingCtrl', function() {
 		it('should really work now', function() {
 			var $scope = {};
 			var controller = $controller('landingCtrl', { $scope: $scope });
-			$scope.title = 'this should be there';
-			expect($scope.getTitle).toEqual('this should be there');
+			expect($scope.getTitle()).toEqual("When your blood pressure gets too high say: 'Serenity now!'");
 		});
 	});
 });
