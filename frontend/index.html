@@ -7,6 +7,11 @@
     <div ng-bind="title"></div>
     <div ng-bind="getSuggestion()"></div>
 
+    <div ng-controller="SuggestionController as sc">
+      {{ sc.name }}
+      <sn-suggestion></sn-suggestion>
+    </div>
+
 		<script src="http://localhost:8080/bundle.js"></script> 
   </body>
 </html>

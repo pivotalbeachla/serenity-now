@@ -1,4 +1,5 @@
 var webpack = require("webpack");
+var path = require('path');
 
 module.exports = {
 		entry: {
@@ -10,7 +11,11 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\.css$/, loader: "style!css" }
+            { test: /\.css$/, loader: "style!css" },
+            {
+                test: /\.html$/,
+                loader: 'ngtemplate?relativeTo=' + (path.resolve(__dirname)) + '/!html'
+            }
         ]
     }
 };
