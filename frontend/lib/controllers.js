@@ -5,4 +5,4 @@ angular.module('serenityNow').controller('landingCtrl', function($scope) {
   $scope.getTitle = function() {
     return title;
   };
-}); 
+});

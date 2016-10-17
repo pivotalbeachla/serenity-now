@@ -4,13 +4,39 @@
     <title>Serenity now - frontend</title>
   </head>
   <body ng-controller="landingCtrl">
-    <div ng-bind="title"></div>
-    <div ng-bind="getSuggestion()"></div>
 
-    <div ng-controller="SuggestionController as sc">
-      <sn-suggestion></sn-suggestion>
+    <div ng-controller="SpongeWorthyController as swc">
+      <form name="userForm" style="background-color: #5e7d00">
+        <label>
+          your name:
+          <input type="text" name="userName"
+                 ng-model="user.name"
+                 ng-init="user.name='George'"
+                 ng-model-options="{ updateOn: 'blur' }"
+                 ng-keyup="cancel($event)" />
+        </label><br />
+
+        <label>
+          location:
+          <input type="text" name="location"
+                 ng-model="user.location"
+                 ng-init="user.location='Queens'"
+                 ng-model-options="{ updateOn: 'blur' }"
+                 ng-keyup="cancel($event)" />
+        </label><br />
+
+
+        <h1>Hello: {{user.name}}!</h1>
+
+        <br/><br/><br/>
+      </form>
+
+      <div ng-controller="SuggestionController as sc">
+        <sn-suggestion></sn-suggestion>
+      </div>
     </div>
 
-		<script src="http://localhost:8080/bundle.js"></script> 
+
+		<script src="http://localhost:8080/bundle.js"></script>
   </body>
 </html>
