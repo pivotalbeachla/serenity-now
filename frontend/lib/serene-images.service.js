@@ -5,8 +5,14 @@ angular.module('serenityNow')
 
         this.fetchImage = function (personName) {
             var deferred = $q.defer();
+
+            var url = giphySerenityNowRandomImageUrl;
+            if (personName != '') {
+                url += "+" + personName
+            }
+
             $http({
-                url: giphySerenityNowRandomImageUrl + "+" + personName,
+                url: url,
                 method: "GET"
             }).then(function successCallback(response) {
                     deferred.resolve({ status: 'success', imageUrl: response.data["data"]["image_url"] });

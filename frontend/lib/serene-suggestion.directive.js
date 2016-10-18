@@ -6,7 +6,7 @@ angular.module('serenityNow')
         function ($scope, SereneImagesService, User) {
             this.suggestion = {
                 user: User,
-                day: "Mondays",
+                date: new Date(),
                 motivationalImageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/de/Ajax-loader.gif"
             };
 

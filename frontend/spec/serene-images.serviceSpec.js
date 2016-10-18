@@ -1,7 +1,5 @@
-
-
 describe('SereneImagesService', function () {
-    var $httpBackend, $rootScope, createService, gifRequestHandler, $scope;
+    var $httpBackend, createService, gifRequestHandler;
     var subject;
 
     beforeEach(module('serenityNow'));
@@ -24,18 +22,27 @@ describe('SereneImagesService', function () {
         $httpBackend.verifyNoOutstandingRequest();
     });
 
-    describe('without a user', function () {
-        it('should fetch a gif without user filter', function () {
-            $httpBackend.expectGET(baseUrl + "+");
-            subject.fetchImage('');
-            $httpBackend.flush();
+    describe(".fetchImage", function () {
+        describe('without a user', function () {
+            it('should GET a gif without user filter', function () {
+                $httpBackend.expectGET(baseUrl);
+                subject.fetchImage('');
+                $httpBackend.flush();
+            });
         });
-    });
 
-    describe('with a user', function () {
-        it('should fetch a gif with user filter', function () {
-            $httpBackend.expectGET(baseUrl + "+George");
-            subject.fetchImage('George');
+        describe('with a user', function () {
+            it('should GET a gif with user filter', function () {
+                $httpBackend.expectGET(baseUrl + "+George");
+                subject.fetchImage('George');
+                $httpBackend.flush();
+            });
+        });
+
+        it('should return a promise with an image url', function () {
+            subject.fetchImage('irrelevant-to-this-test').then(function (promise) {
+                expect(promise['imageUrl']).toBe(gifUrl);
+            });
             $httpBackend.flush();
         });
     });
