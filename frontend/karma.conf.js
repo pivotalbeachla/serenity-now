@@ -1,6 +1,9 @@
 // Karma configuration
 // Generated on Wed Oct 12 2016 16:18:13 GMT-0700 (PDT)
 
+var webpackConfig = require('./webpack.config.js');
+webpackConfig.entry = {};
+
 module.exports = function(config) {
   config.set({
 
@@ -19,7 +22,7 @@ module.exports = function(config) {
 			"node_modules/angular/angular.js",
 			"node_modules/angular-mocks/angular-mocks.js",
       "lib/index.js",
-			"spec/controllersSpec.js",
+			"spec/*Spec.js",
       /*      "lib/jasmine_examples*//*.js",*/
     ],
 
@@ -29,22 +32,12 @@ module.exports = function(config) {
     ],
 
 
-		webpack: {
-      // karma watches the test entry points
-      // (you don't need to specify the entry option)
-      // webpack watches dependencies
+		webpack: webpackConfig,
 
-      // webpack configuration
-    },
-
-    webpackMiddleware: {
-      // webpack-dev-middleware configuration
-      // i. e.
-      stats: 'errors-only'
-    },
 
     preprocessors: {
-      'lib/**/*.js': ['webpack']
+      'lib/**/*.js': ['webpack'],
+      'lib/*.html': ['webpack']
     },
 
 
