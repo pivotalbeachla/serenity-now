@@ -15,7 +15,6 @@ angular.module('serenityNow')
             };
 
             var init = function (controllerScope) {
-                console.log("Feel serene...");
                 var personName = controllerScope.personName();
                 SereneImagesService.fetchImage(personName).then(function (promise) {
                     controllerScope.suggestion.motivationalImageUrl = promise["imageUrl"];
@@ -24,11 +23,14 @@ angular.module('serenityNow')
 
             init(this);
 
-            $scope.$watch("sc.suggestion.user.name", function (newVal) {
+            $scope.$watch(function () {
+                return $scope.sc.suggestion.user.name;
+            }, function (newVal) {
                 SereneImagesService.fetchImage(newVal).then(function (promise) {
                     $scope.sc.suggestion.motivationalImageUrl = promise["imageUrl"];
                 })
             });
+
 
         }])
     .directive('snSuggestion', function () {

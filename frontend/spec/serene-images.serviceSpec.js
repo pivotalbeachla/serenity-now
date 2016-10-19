@@ -1,5 +1,5 @@
 describe('SereneImagesService', function () {
-    var $httpBackend, createService, gifRequestHandler;
+    var $httpBackend, gifRequestHandler;
     var subject;
 
     beforeEach(module('serenityNow'));
